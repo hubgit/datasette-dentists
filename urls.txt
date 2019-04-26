@@ -1,0 +1,4 @@
+https://media.nhschoices.nhs.uk/data/foi/Dentists.csv
+https://media.nhschoices.nhs.uk/data/foi/DentistOpeningTimes.csv
+https://media.nhschoices.nhs.uk/data/foi/TransparencyIndicatorsDentistsPerformance.csv
+https://media.nhschoices.nhs.uk/data/foi/DentistStaff.csv
