@@ -5,7 +5,7 @@ FROM python:3 as installer
 RUN mkdir /install
 
 ## https://github.com/simonw/datasette
-RUN pip wheel --wheel-dir=/wheels datasette
+RUN pip wheel --wheel-dir=/wheels datasette datasette-cluster-map
 
 # generate database
 
@@ -28,7 +28,7 @@ FROM python:3-slim
 
 COPY --from=installer /wheels /wheels
 
-RUN pip install --no-index --find-links=/wheels datasette
+RUN pip install --no-index --find-links=/wheels datasette datasette-cluster-map
 
 WORKDIR /data
 
