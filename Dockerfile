@@ -4,8 +4,8 @@ FROM python:3 as installer
 
 RUN mkdir /install
 
-# https://github.com/simonw/datasette
-RUN pip install --target /install --ignore-installed datasette
+## https://github.com/simonw/datasette
+RUN pip wheel --wheel-dir=/wheels datasette
 
 # generate database
 
@@ -24,9 +24,11 @@ RUN csvs-to-sqlite *.csv data.db --separator '¬' --skip-errors
 
 # serve application
 
-FROM python:3-alpine
+FROM python:3-slim
 
-COPY --from=installer /install /usr/local
+COPY --from=installer /wheels /wheels
+
+RUN pip install --no-index --find-links=/wheels datasette
 
 WORKDIR /data
 
