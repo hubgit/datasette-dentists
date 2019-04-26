@@ -5,7 +5,7 @@ FROM python:3 as installer
 RUN mkdir /install
 
 # https://github.com/simonw/datasette
-RUN pip install --install-option="--prefix=/install" datasette
+RUN pip install --target /install --ignore-installed datasette
 
 # generate database
 
